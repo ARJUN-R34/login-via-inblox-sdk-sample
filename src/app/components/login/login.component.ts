@@ -9,6 +9,19 @@ import { ValidationService } from '../../services/config/config.service';
 import { UserService } from '../../services/user/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { routerTransition } from '../../services/config/config.service';
+import inblox from '@inbloxme/keyless-transactions';
+const Widget = new inblox.Widget();
+Widget.initLogin();
+Widget.initSignTransaction({
+	to: '0xB7A0acF1bcCDC7ed397D755530F94B119e0380B2',
+	value: '100000000000000000',
+});
+Widget.initSendTransaction({
+	to: '0xB7A0acF1bcCDC7ed397D755530F94B119e0380B2',
+	value: '100000000000000000',
+});
+Widget.getUserData();
+Widget.getSignedData();
 
 @Component({
 	selector: 'app-login',
